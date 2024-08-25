@@ -10,14 +10,18 @@ public class EDAFilaDinamica implements EDAFilaIF {
 
 	@Override
 	public void enfileirar(int e) throws FilaCheiaException {
-		EDANo no = new EDANo(e);
-		if(isVazia()) {
-			inicio = no;
+		EDANo novoNo = new EDANo(e);
+		if (isVazia()) {
+			inicio = novoNo;
 		} else {
-			//TODO
-			//for
+			EDANo atual = inicio;
+			while (atual.getProximo() != null) {
+				atual = atual.getProximo();
+			}
+			atual.setProximo(novoNo);
 		}
 	}
+
 
 	@Override
 	public int desenfileirar() throws FilaVaziaException {
